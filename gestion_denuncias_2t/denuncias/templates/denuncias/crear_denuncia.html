@@ -1,0 +1,16 @@
+{% extends "base.html" %}  
+{% block title %} Crear denuncia {% endblock %}  
+{% block content %}  
+
+<h1> Crear denuncia </h1>  
+<p> Ingresa titulo: </p>  
+<!-- El formulario HTML para iniciar sesión -->
+<form method="POST">  <!-- Establece el método del formulario como POST, lo que significa que los datos se enviarán al servidor cuando el usuario haga clic en el botón de envío. -->
+    {% csrf_token %}  <!-- La etiqueta {% csrf_token %} genera un token de protección CSRF, que es una medida de seguridad para prevenir ataques de falsificación de solicitudes entre sitios. Django lo requiere en los formularios POST. -->
+    {{ form.as_p }}  <!-- Aquí se muestra el formulario en formato de párrafos. Django se encarga de generar todos los campos del formulario (como los campos de entrada de usuario y contraseña) a partir del objeto 'form'. -->
+    <p> 
+        <input type="submit" value="Crear"/>  <!-- Un botón de tipo 'submit' que envía el formulario cuando el usuario hace clic en él. El texto del botón es 'Login'. -->
+    </p>
+</form>
+
+{% endblock %}  <!-- Fin del bloque 'content'. Aquí termina la parte específica de la página de login. El bloque se cerró y se devolverá el contenido dentro de la estructura definida en 'base.html'. -->

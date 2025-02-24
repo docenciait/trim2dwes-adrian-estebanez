@@ -1,0 +1,19 @@
+{% extends "base.html" %}  <!-- Esta línea indica que la plantilla actual extiende (hereda) de la plantilla base 'base.html'. Esto significa que se usará la estructura y los bloques definidos en 'base.html' y se sobrescribirán solo los bloques que se necesiten. -->
+
+{% block title %} Login {% endblock %}  <!-- Aquí se define el título de la página para este archivo. En este caso, el título será 'Login'. Este bloque sobrescribe el bloque 'title' definido en 'base.html'. -->
+
+{% block content %}  <!-- Aquí comienza el bloque 'content'. Este bloque se sobrescribe para proporcionar el contenido específico de la página de login. -->
+
+<h1> Login </h1>  <!-- Muestra el encabezado 'Login' en la página. -->
+<p> Ingresa usuario: </p>  <!-- Muestra un párrafo solicitando que se ingrese el usuario. -->
+
+<!-- El formulario HTML para iniciar sesión -->
+<form method="POST">  <!-- Establece el método del formulario como POST, lo que significa que los datos se enviarán al servidor cuando el usuario haga clic en el botón de envío. -->
+    {% csrf_token %}  <!-- La etiqueta {% csrf_token %} genera un token de protección CSRF, que es una medida de seguridad para prevenir ataques de falsificación de solicitudes entre sitios. Django lo requiere en los formularios POST. -->
+    {{ form.as_p }}  <!-- Aquí se muestra el formulario en formato de párrafos. Django se encarga de generar todos los campos del formulario (como los campos de entrada de usuario y contraseña) a partir del objeto 'form'. -->
+    <p> 
+        <input type="submit" value="Login"/>  <!-- Un botón de tipo 'submit' que envía el formulario cuando el usuario hace clic en él. El texto del botón es 'Login'. -->
+    </p>
+</form>
+
+{% endblock %}  <!-- Fin del bloque 'content'. Aquí termina la parte específica de la página de login. El bloque se cerró y se devolverá el contenido dentro de la estructura definida en 'base.html'. -->
